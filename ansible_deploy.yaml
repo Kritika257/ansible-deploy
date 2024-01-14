@@ -21,5 +21,5 @@
 
     - name: Copy custom webpage files
       copy:
-        src: /path/to/your_webpage_files
+        src: /path/to/your_webpage_files/
         dest: /var/www/html/
