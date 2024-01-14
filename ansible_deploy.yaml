@@ -1,0 +1,25 @@
+---
+- name: Install Nginx and deploy a custom webpage
+  hosts: your_ubuntu_servers  # Replace with your target server(s) or inventory group
+  become: true  # Run tasks with elevated privileges
+
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      package:
+        name: nginx
+        state: present
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Copy custom webpage files
+      copy:
+        src: /path/to/your_webpage_files
+        dest: /var/www/html/
